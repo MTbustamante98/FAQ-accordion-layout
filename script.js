@@ -3,9 +3,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const accordionList = document.querySelectorAll('.js-accordion dt');
   
   function accordionClick(event) {
-    console.log(event)
-    this.classList.toggle('ativo');
-    this.nextElementSibling.classList.toggle('ativo');
+    accordionList.forEach((item) => {
+    if (item !== this) {
+      item.classList.remove('ativo');
+      item.nextElementSibling.classList.remove('ativo')
+    }
+  });
+  
+      this.classList.toggle('ativo');
+      this.nextElementSibling.classList.toggle('ativo');
   }
 
   accordionList.forEach((item) => {
